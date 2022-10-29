@@ -263,7 +263,7 @@ DROP TABLE IF EXISTS `lms`.`estudiante_has_grupo` ;
 
 CREATE TABLE IF NOT EXISTS `lms`.`estudiante_has_grupo` (
   `estudiante_cedula` INT NOT NULL,
-  `estudiante_pensum_idpensum` INT ZEROFILL NOT NULL,
+  `estudiante_pensum_idpensum` INT(4) ZEROFILL NOT NULL,
   `estudiante_usuario_idusuario` VARCHAR(20) NOT NULL,
   `grupo_idgrupo` INT(4) ZEROFILL NOT NULL,
   `grupo_profesor_cedula` INT NOT NULL,
