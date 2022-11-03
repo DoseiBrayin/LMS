@@ -3,7 +3,7 @@ const router = express.Router()
 const pool = require('../database')
 
 router.get('/', (req, res) => {
-    res.send('Hello world')
+    res.render("layouts/Index/loginvista.hbs")
 })
 
 module.exports = router
