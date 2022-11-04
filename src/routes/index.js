@@ -3,7 +3,7 @@ const router = express.Router()
 const pool = require('../database')
 
 router.get('/', (req, res) => {
-    res.render("index")
+    res.render("index2")
 })
 
 router.get('/login', (req, res) => {
