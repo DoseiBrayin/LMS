@@ -11,7 +11,7 @@ router.get('/cursos', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render("layouts/Index/loginvista")
+    res.render("login/loginvista")
 })
 
 module.exports = router
