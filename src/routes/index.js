@@ -6,10 +6,6 @@ router.get('/', (req, res) => {
     res.render("index")
 })
 
-router.get('/cursos', (req, res) => {
-    res.render("cursosEst")
-})
-
 router.get('/login', (req, res) => {
     res.render("login/loginvista")
 })

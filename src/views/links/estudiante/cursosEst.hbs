@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body id="body">
-    
+
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -19,16 +21,16 @@
     </header>
 
     <div class="menu__side" id="menu_side">
-        
+
         <div class="name__page">
-            
-              
+
+
             <h4>Hogwarts</h4>
-            
+
 
         </div>
 
-        <div class="options__menu">	
+        <div class="options__menu">
 
             <a href="#" class="selected">
                 <div class="option">
@@ -43,7 +45,7 @@
                     <h4>Horary</h4>
                 </div>
             </a>
-            
+
             <a href="#">
                 <div class="option">
                     <i class="fas fa-video" title="Cursos"></i>
@@ -69,8 +71,8 @@
                 <div class="option">
                     <i class="far fa-address-card" title="Nosotros"></i>
                     <h4>Ours Instalaciones</h4>
-                
-            
+
+
                 </div>
             </a>
 
@@ -79,19 +81,30 @@
     </div>
 
     <main>
-        
-        <div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+        {{#each pensum}}
+        <h1>{{pensum}}</h1>
+        <p>The student with name {{nombre}} and identified with ID card {{cedula}}
+            ,You are currently enrolled in the program {{pensum}} with code {{pensum_idpensum}}</p>
+        {{/each}}
+
+        <div class="row">
+            {{#each cursos}}
+            <div class="col-sm-3">
+                <div class="card text-bg-secondary mb-3" style="max-width: 25rem;">
+                    <div class="card-header bg-success text-white">Asignature Code {{grupo_asignatura_id_asig}} </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{nombre_asig}}</h4>
+                        <h class="card-text">{{nombre}}</p>
+                            <p class="card-text">{{dia}}</p>
+                            <p class="card-text">{{hora_inicio}} - {{hora_fin}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </main>
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>
