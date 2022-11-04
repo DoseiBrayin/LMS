@@ -12,4 +12,8 @@ router.get('/cursos', async (req, res) => {
     res.render("links/estudiante/cursosEst",{cursos,pensum})
 })
 
+router.get('/indexest', (req, res) => {
+    res.render("links/estudiante/indexest")
+})
+
 module.exports = router
