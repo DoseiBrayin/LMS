@@ -8,7 +8,6 @@ router.get('/cursos', async (req, res) => {
     const cursos =await pool.query(sql)
     const sql_pensum = 'select e.nombre,e.cedula,e.pensum_idpensum,p.nombre as pensum  from pensum p inner join estudiante e on p.idpensum=e.pensum_idpensum where e.cedula = 1883950'
     const  pensum = await pool.query(sql_pensum)
-    console.log(pensum)
     res.render("links/estudiante/cursosEst",{cursos,pensum})
 })
 
