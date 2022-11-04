@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
+    req.flash('success', 'Link Updated Successfully');
     res.render("login/loginvista")
 })
 
