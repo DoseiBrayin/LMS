@@ -15,4 +15,8 @@ router.get('/indexest', (req, res) => {
     res.render("links/estudiante/indexest")
 })
 
+router.get('/indexprofe', (req, res) => {
+    res.render("links/profesor/indexProf")
+})
+
 module.exports = router
