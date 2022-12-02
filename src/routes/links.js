@@ -22,8 +22,8 @@ router.get('/indexest', isLoggedIn,isStudent, (req, res) => {
 // RUTAS DEL ADMINISTRADOR
 router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
     res.render("links/admin/indexAdmin.hbs")
-    
 })
+
 //RUTAS DEL PROFESOR
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
     res.render("links/profesor/indexProf")
@@ -63,7 +63,6 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
         }
         return estudiantes
     })
-    console.log(listado)
     //CREO EL DOCUMENTO
     doc.addTable([
         {key:'cedula',label:'cedula',aling:'left'},
