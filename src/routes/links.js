@@ -63,7 +63,11 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
         }
         return estudiantes
     })
-    //CREO EL DOCUMENTO
+
+    if(listado.length == 0){
+        doc.text('No se encuentran alumnos matriculados en este grupo')
+    }else{
+        //CREO EL DOCUMENTO
     doc.addTable([
         {key:'cedula',label:'cedula',aling:'left'},
         {key:'nombre',label:'nombre',aling:'left'},
@@ -91,12 +95,16 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
             .fontSize(20)
             .text(`LISTADO DE ESTUDIANTES DEL GRUPO ${grupo.idgrupo}`, doc.header.x, doc.header.y);
     });
+    doc.render()
+    }
+
+    
     
     doc.on('data',(data)=>{
         stream.write(data)
     })
     doc.on('end',()=>{stream.end()})
-    doc.render()
+
     doc.end()
 
 
