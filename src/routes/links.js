@@ -24,6 +24,10 @@ router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
     res.render("links/admin/indexAdmin.hbs")
 })
 
+router.get('/adminpanel', isLoggedIn,isAdmin, (req, res) => {
+    res.render("links/admin/adminpanel.hbs")
+})
+
 //RUTAS DEL PROFESOR
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
     res.render("links/profesor/indexProf")
