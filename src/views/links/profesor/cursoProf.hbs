@@ -44,7 +44,6 @@
                 </div>
             </a>
             
-
             <a href="#">
                 <div class="option">
                     <i class="far fa-sticky-note" title="Blog"></i>
@@ -66,10 +65,24 @@
     </div>
 
     <main>
-        
-        <div style="text-align: center;">
-            <img src="/img/logo_1.png" width="450" height="450">
-          </div>
+        <div class="row">
+            {{#if cursos}}
+            {{#each cursos}}
+            <div class="col-sm-3">
+                <div class="card text-bg-secondary mb-3" style="max-width: 25rem;">
+                    <div class="card-header bg-success text-white">Group Code{{idgrupo}}  </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{nombre}}</h4>
+                        <h class="card-text">{{dia}}</p>
+                            <p class="card-text">{{hora_inicio}} - {{hora_fin}}</p>
+                        <a type="button" class="btn btn-success btn-block p-1" href="/links/profe/descargarlista{{idgrupo}}">DESCARGAR LISTA</a>
+                        <a type="button" class="btn btn-success btn-block p-1" href="/links/profe/lista{{idgrupo}}">VER LISTA</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
     </main>
 
     <script src="/js/script.js"></script>

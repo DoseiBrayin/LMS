@@ -66,10 +66,36 @@
     </div>
 
     <main>
-        
-        <div style="text-align: center;">
-            <img src="/img/logo_1.png" width="450" height="450">
-          </div>
+        <table class="table">
+    <thead class="table-success">
+        <th>identification</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Pensum</th>
+        <th>User</th>
+    </thead>
+    <tbody>
+        {{#each lista}}
+        <tr>
+            <th>
+                {{cedula}}
+            </th>
+            <th>
+                {{nombre}}
+            </th>
+            <th>
+                {{correo}}
+            </th>
+            <th>
+                {{pensum_idpensum}}
+            </th>
+            <th>
+                {{usuario_idusuario}}
+            </th>
+        </tr>  
+        {{/each}}
+    </tbody>
+</table>
     </main>
 
     <script src="/js/script.js"></script>

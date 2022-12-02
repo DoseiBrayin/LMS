@@ -26,5 +26,24 @@ router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
     res.render("links/profesor/indexProf")
 })
-
+router.get('/profe/cursos', isLoggedIn,isTeacher,async(req, res) => {
+    const sql = 'SELECT cedula FROM `profesor` WHERE usuario_idusuario = ?'
+    const cedula = await pool.query(sql,req.user.idusuario)
+    const sql2 = 'SELECT idgrupo,profesor_cedula,dia,hora_inicio,hora_fin,nombre FROM `grupo` INNER JOIN `tiempo` on tiempo_idtiempo=idtiempo INNER JOIN `asignatura` on asignatura_id_asig=id_asig WHERE profesor_cedula = ?;'
+    const cursos = await pool.query(sql2,cedula[0].cedula)
+    console.log(cursos)
+    res.render("links/profesor/cursoProf",{cursos})
+})
+router.get('/profe/lista:idgrupo', isLoggedIn,isTeacher,async(req, res) => {
+    const grupo = req.params
+    const sql = 'SELECT e.* FROM `estudiante_has_grupo` INNER JOIN `estudiante` e on estudiante_has_grupo.estudiante_cedula= e.cedula WHERE estudiante_has_grupo.grupo_idgrupo = '+ grupo.idgrupo
+    const lista = await pool.query(sql)
+    res.render("links/profesor/listaProf",{lista})
+})
+router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res) => {
+    const grupo = req.params
+    const sql = 'SELECT e.* FROM `estudiante_has_grupo` INNER JOIN `estudiante` e on estudiante_has_grupo.estudiante_cedula= e.cedula WHERE estudiante_has_grupo.grupo_idgrupo = '+ grupo.idgrupo
+    const lista = await pool.query(sql)
+    res.redirect('/links/profe/lista'+grupo.idgrupo)
+})
 module.exports = router
