@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body id="body">
-    
+
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -19,16 +21,16 @@
     </header>
 
     <div class="menu__side" id="menu_side">
-        
+
         <div class="name__page">
-            
-              
-                <h1>Hogwarts</h1>
-            
+
+
+            <h1>Hogwarts</h1>
+
 
         </div>
 
-        <div class="options__menu">	
+        <div class="options__menu">
 
             <a href="/links/indexest" class="selected">
                 <div class="option">
@@ -37,13 +39,13 @@
                 </div>
             </a>
 
-           <a href="#">
+            <a href="#">
                 <div class="option">
                     <i class="far fa-file" title="Courses Lists"></i>
                     <h4>Courses Lists</h4>
                 </div>
             </a>
-            
+
 
             <a href="/logout">
                 <div class="option">
@@ -51,71 +53,59 @@
                     <h4>Exit</h4>
                 </div>
             </a>
-                </div>
-            </a>
-
         </div>
+        </a>
+
+    </div>
 
     </div>
 
     <main>
- </form>
-  <form role="form"></form>
-  </div>
-  <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-     <span class="cedula profesor">Cedula Profesor:</span>
-  </button>
+        <form method="post" action="/links/admin/grupo">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="cedula profesor">Profesor:</span>
+                </button>
 
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Acción #1</a></li>
-    <li><a href="#">Acción #2</a></li>
-    <li><a href="#">Acción #3</a></li>
-    <li><a href="#">Acción #4</a></li>
-  </ul>
-</div>
- 
- </div>
-  <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle"
-          data-toggle="dropdown">
-    <span class="asignatura">Asignatura:</span>
-  </button>
+                <ul class="dropdown-menu" role="menu">
+                    {{#each profesores}}
+                    <li><a href="#">{{nombre}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
 
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Acción #1</a></li>
-    <li><a href="#">Acción #2</a></li>
-    <li><a href="#">Acción #3</a></li>
-    <li><a href="#">Acción #4</a></li>
-  </ul>
-</div>
- 
- <div class="form-group">
-    <label for="fecha">Fecha:</label>
-    <input type="email" class="form-control" id="ejemplo_email_1"
-           placeholder="">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="asignatura">Asignatura:</span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                    {{#each asignaturas}}
+                    <li><a href="#">{{nombre}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Date:</label>
+                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label for="HORA_INICIO">Start Time:</label>
+                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
+            </div>
            
-  </div>
-  <div class="form-group">
-    <label for="HORA">Hora:</label>
-    <input type="email" class="form-control" id="ejemplo_email_1"
-           placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="HORA_INICIO">Hora Inicio:</label>
-    <input type="email" class="form-control" id="ejemplo_email_1"
-           placeholder="">
-  </div>
-    <div class="form-group">
-    <label for="HORA_FIN">Hora Fin:</label>
-    <input type="email" class="form-control" id="ejemplo_email_1"
-           placeholder="">
-  </div>
- <button type="submit" class="btn btn-default">Agregar</button>
-</form>
+                <label for="HORA_FIN">Finish Time:</label>
+                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
+            
+            <input type="submit" value="Add Group" class="btn btn-success m-2">
+        </form>
     </main>
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>

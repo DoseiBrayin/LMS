@@ -24,9 +24,18 @@ router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
     res.render("links/admin/indexAdmin.hbs")
 })
 
-router.get('/admin/grupo', isLoggedIn,isAdmin, (req, res) => {
-    res.render("links/admin/formgroup")
+router.get('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
+    let sql = 'SELECT nombre FROM `profesor`'
+    const profesores = await pool.query(sql)
+    sql = 'SELECT nombre FROM `asignatura`'
+    const asignaturas = await pool.query(sql)
+    res.render("links/admin/formgroup",{profesores,asignaturas})
 })
+
+router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
+    res.redirect('/links/adminpanel')
+})
+
 
 router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
     const sql = 'SELECT g.idgrupo,a.nombre,a.creditos,p.nombre as profesor FROM `grupo` g INNER JOIN `asignatura` a ON g.idgrupo=a.id_asig INNER JOIN `profesor` p ON g.profesor_cedula=p.cedula;'
