@@ -30,6 +30,13 @@ router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
     res.render("links/admin/adminpanel.hbs",{grupos})
 })
 
+router.post('/admin/estudiante:grupo', isLoggedIn,isAdmin, (req, res) => {
+    const sql = ''
+    const cedula = req.params
+    const actualizar = await pool.query(sql,)
+    res.redirect('/links/adminpanel')
+})
+
 //RUTAS DEL PROFESOR
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
     res.render("links/profesor/indexProf")
