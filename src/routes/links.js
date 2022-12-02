@@ -24,8 +24,10 @@ router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
     res.render("links/admin/indexAdmin.hbs")
 })
 
-router.get('/adminpanel', isLoggedIn,isAdmin, (req, res) => {
-    res.render("links/admin/adminpanel.hbs")
+router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
+    const sql = 'SELECT g.idgrupo,a.nombre,a.creditos,p.nombre as profesor FROM `grupo` g INNER JOIN `asignatura` a ON g.idgrupo=a.id_asig INNER JOIN `profesor` p ON g.profesor_cedula=p.cedula;'
+    const grupos = await pool.query(sql)
+    res.render("links/admin/adminpanel.hbs",{grupos})
 })
 
 //RUTAS DEL PROFESOR
