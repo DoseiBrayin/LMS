@@ -30,10 +30,11 @@ router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
     res.render("links/admin/adminpanel.hbs",{grupos})
 })
 
+router.get('/admin/estudiante:grupo', isLoggedIn,isAdmin, (req, res) => {
+    res.render('links/admin/formest')
+})
+
 router.post('/admin/estudiante:grupo', isLoggedIn,isAdmin, (req, res) => {
-    const sql = ''
-    const cedula = req.params
-    const actualizar = await pool.query(sql,)
     res.redirect('/links/adminpanel')
 })
 
