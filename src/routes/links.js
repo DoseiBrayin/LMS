@@ -25,14 +25,21 @@ router.get('/indexadmin', isLoggedIn,isAdmin, (req, res) => {
 })
 
 router.get('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
-    let sql = 'SELECT nombre FROM `profesor`'
+    let sql = 'SELECT nombre,cedula FROM `profesor`'
     const profesores = await pool.query(sql)
-    sql = 'SELECT nombre FROM `asignatura`'
+    sql = 'SELECT nombre,id_asig FROM `asignatura`'
     const asignaturas = await pool.query(sql)
     res.render("links/admin/formgroup",{profesores,asignaturas})
 })
 
 router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
+    const grupo = {
+        profesor: req.body.profesor,
+        asignatura: req.body.asignatura,
+        hora_inicio: '124@fasf.com',
+        hora_final: '4232@fasf.com'
+    }
+    console.log(req.body)
     res.redirect('/links/adminpanel')
 })
 

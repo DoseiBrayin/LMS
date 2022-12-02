@@ -61,48 +61,53 @@
     </div>
 
     <main>
-        <form method="post" action="/links/admin/grupo">
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="cedula profesor">Profesor:</span>
-                </button>
+        <div class="card mb-10 p-4">
+            <form method="post" action="/links/admin/grupo">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">Teachers</label>
+                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="profesor">
+                        {{#each profesores}}
+                        <option value={{cedula}}>{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                    <label class="input-group-text" for="inputGroupSelect01">Asignature</label>
+                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="asignatura">
+                        {{#each asignaturas}}
+                        <option value={{id_asig}}>{{nombre}}</option>
+                        {{/each}}
+                    </select>
 
-                <ul class="dropdown-menu" role="menu">
-                    {{#each profesores}}
-                    <li><a href="#">{{nombre}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text m-2" for="inputGroupSelect01">Start day</label>
+                        <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio">
+                            <option value="LUNES">LUNES</option>
+                            <option value="LUNES">MARTES</option>
+                            <option value="LUNES">MIERCOLES</option>
+                            <option value="LUNES">JUEVES</option>
+                            <option value="LUNES">VIERNES</option>
+                        </select>
 
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="asignatura">Asignatura:</span>
-                </button>
+                        <label class="input-group-text m-2" for="inputGroupSelect01">Finish day</label>
+                        <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio">
+                            <option value="LUNES">LUNES</option>
+                            <option value="LUNES">MARTES</option>
+                            <option value="LUNES">MIERCOLES</option>
+                            <option value="LUNES">JUEVES</option>
+                            <option value="LUNES">VIERNES</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="HORA_INICIO">Start time:</label>
+                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_inicio">
 
-                <ul class="dropdown-menu" role="menu">
-                    {{#each asignaturas}}
-                    <li><a href="#">{{nombre}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+                        <label for="HORA_FIN">Finish time:</label>
+                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_final">
+                    </div>
 
-            <div class="form-group">
-                <label for="fecha">Date:</label>
-                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
+                    <input type="submit" value="Add Group" class="btn btn-success btn-block m-3">
+            </form>
+        </div>
 
-            </div>
-            <div class="form-group">
-                <label for="HORA_INICIO">Start Time:</label>
-                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
-            </div>
-           
-                <label for="HORA_FIN">Finish Time:</label>
-                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="">
-            
-            <input type="submit" value="Add Group" class="btn btn-success m-2">
-        </form>
     </main>
 
     <script src="/js/script.js"></script>
