@@ -99,7 +99,7 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
     })
 
     if(listado.length == 0){
-        doc.text('No se encuentran alumnos matriculados en este grupo')
+        doc.text('There are no students enrolled in this group')
     }else{
         //CREO EL DOCUMENTO
     doc.addTable([
@@ -127,7 +127,7 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
 
         doc.fill("#FFFFFF")
             .fontSize(20)
-            .text(`LISTADO DE ESTUDIANTES DEL GRUPO ${grupo.idgrupo}`, doc.header.x, doc.header.y);
+            .text(`GROUP STUDENT LIST ${grupo.idgrupo}`, doc.header.x, doc.header.y);
     });
     doc.render()
     }
