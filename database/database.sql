@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `lms`.`estudiante_has_grupo` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `pensum` (`idpensum`, `nombre`,`materias`) VALUES ('8210', 'La Magia De La informatica',10), ('9192', 'Encantamientos Audiovisuales',10);
+INSERT INTO `pensum` (`idpensum`, `nombre`,`materias`) VALUES ('8210', 'The magic of computing',10), ('9192', 'Audiovisual Charms',10);
 INSERT INTO `rol` (`idrol`, `nombre`) VALUES ('1', 'admin'), ('2', 'profesor'), ('3', 'estudiante');
 INSERT INTO `usuario` (`idusuario`, `contraseña`, `rol_idrol`) VALUES ('brayan_admin', '12345', '1'), ('Carlos_Arenas', '123', '3'), ('Ruben_Arenas', '12345', '3'), ('Sebas_Arenas', '1234', '3'), ('Xime_Pulgarin', '12345', '3'), ('Andreu_P', '1234', '2'), ('Martha_F', '1234', '2'), ('Pelayo_Gr', '1234', '2'), ('Graciela_D', '12345', '2');
 INSERT INTO `estudiante` (`cedula`, `nombre`, `correo`, `pensum_idpensum`, `usuario_idusuario`) VALUES ('1779854', 'Ruben Arenas', 'ruben_estudiante@howards.com', '8210', 'Ruben_Arenas');
