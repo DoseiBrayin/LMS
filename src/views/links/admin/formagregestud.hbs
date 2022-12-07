@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts</title>
+
+    <link rel="stylesheet" href="/css/estilos2.css">
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body">
+
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+
+
+            <h1>Hogwarts</h1>
+
+
+        </div>
+
+        <div class="options__menu">
+
+            <a href="/links/indexest" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Home</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-file" title="Courses Lists"></i>
+                    <h4>Courses Lists</h4>
+                </div>
+            </a>
+
+
+            <a href="/logout">
+                <div class="option">
+                    <i class="far fa-id-badge" title="Contacto"></i>
+                    <h4>Exit</h4>
+                </div>
+            </a>
+        </div>
+        </a>
+
+    </div>
+
+    </div>
+
+    <!-- Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackerModal"> 
+    <i class="fa fa-plus"></i> Proyecto
+</button>
+
+<div class="modal fade" id="trackerModal" tabindex="-1" aria-labelledby="nuevoProyecto" aria-hidden="true">
+  <div class="modal-dialog" style="min-width: 75%;">
+    <!--Con el min-width manejo el ancho del modal -->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h2 class="modal-title" id="nuevoProyecto">Nuevo Proyecto</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span>&times;</span>
+                </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="descripcion">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="observaciones">Observaciones</label>
+                <input type="text" class="form-control" id="observaciones">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="fecha_ini">Fecha Inicio</label>
+                <input type="date" class="form-control" id="fecha_ini" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="fecha_fin">Fecha Fin</label>
+                <input type="date" class="form-control" id="fecha_fin">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-2">
+                <label for="site">Site</label>
+                <select class="custom-select mr-sm-2" id="site" required>
+                  <option selected>Elegir Site...</option>
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--.modal-body-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Agregar</button>
+      </div>
+    </div>
+    <!--.modal-content-->
+  </div>
+  <!--.modal-dialog-->
+</div>
+<!--.modal-->
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
