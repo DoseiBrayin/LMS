@@ -304,7 +304,8 @@ History of Magic', '4'), (NULL, 'Astronomy', '2'), (NULL, 'Transformations', '4'
 Guessing', '4'), (NULL, 'Ancient Runes', '3');
 INSERT INTO `asignatura` (`id_asig`, `nombre`, `creditos`) VALUES (NULL, 'Herbology', '2'), (NULL, 'Potions', '2'), (NULL, '
 Incantations', '2'), (NULL, 'Arithmancy', '2'), (NULL, 'Ancient Studies', '4'), (NULL, 'Magical Theory', '4') ;
-INSERT INTO `tiempo` (`idtiempo`, `dia`, `hora_inicio`, `hora_fin`) VALUES (NULL, 'MARTES-JUEVES', '14:00', '16:00'), (NULL, 'JUEVES-VIERNES', '12:00', '14:00'), (NULL, 'LUNES-MARTES', '10:00', '12:00'), (NULL, 'LUNES-MIERCOLES', '18:00', '20:00'), (NULL, 'LUNES-VIERNES', '8:00', '10:00'), (NULL, 'MIERCOLES-VIERNES', '6:00', '8:00');
+INSERT INTO `tiempo` (`idtiempo`, `dia`, `hora_inicio`, `hora_fin`) VALUES (NULL, 'TUESDAY-THURSDAY', '14:00', '16:00'), (NULL, 'THURSDAY-FRIDAY', '12:00', '14:00'), (NULL, 'MONDAY-TUESDAY', '10:00', '12:00'), (NULL, '
+MONDAY-WEDNESDAY', '18:00', '20:00'), (NULL, 'MONDAY-FRIDAY', '8:00', '10:00'), (NULL, 'WEDNESDAY-FRIDAY', '6:00', '8:00');
 INSERT INTO `matriculada` (`idmatriculada`, `estado`, `estudiante_cedula`, `estudiante_pensum_idpensum`, `estudiante_usuario_idusuario`, `asignatura_id_asig`) VALUES (NULL, 'REPROBADO', '1883950', '8210', 'Carlos_Arenas', '0002'), (NULL, 'REPROBADO', '1883950', '8210', 'Carlos_Arenas', '0002');
 INSERT INTO `grupo` (`idgrupo`, `profesor_cedula`, `asignatura_id_asig`, `tiempo_idtiempo`) VALUES (null, '1130171', '0002', '2'), (null, '1130171', '0006', '1'), (null, '1783532', '0005', '3'), (null, '1783532', '0007', '6'), (null, '1301470', '0013', '1'), (null, '1301470', '0014', '6'), (null, '1640564', '0001', '3'), (null, '1640564', '0009', '4'), (null, '1301470', '0015', '5'), (null, '1301470', '0017', '2');
 INSERT INTO `notas` (`idnotas`, `parcial`, `seguimiento`, `final`) VALUES (NULL, '', '', '');
