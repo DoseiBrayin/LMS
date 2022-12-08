@@ -54,7 +54,7 @@ router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
 
 
 router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
-    const sql = 'SELECT g.idgrupo,a.nombre,a.creditos,p.nombre as profesor FROM `grupo` g INNER JOIN `asignatura` a ON g.idgrupo=a.id_asig INNER JOIN `profesor` p ON g.profesor_cedula=p.cedula;'
+    const sql = 'SELECT grupo.idgrupo,asignatura.nombre,asignatura.creditos,profesor.nombre as profesor FROM `grupo` INNER JOIN `asignatura` ON asignatura_id_asig=asignatura.id_asig INNER JOIN `profesor` ON profesor.cedula=profesor_cedula;'
     const grupos = await pool.query(sql)
     res.render("links/admin/adminpanel.hbs",{grupos})
 })
