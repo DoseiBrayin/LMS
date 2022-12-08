@@ -58,6 +58,13 @@ router.post('/admin/estudiante:grupo', isLoggedIn,isAdmin, (req, res) => {
     res.redirect('/links/adminpanel')
 })
 
+router.get('/admin/lista:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
+    const grupo = req.params
+    const sql = 'SELECT e.* FROM `estudiante_has_grupo` INNER JOIN `estudiante` e on estudiante_has_grupo.estudiante_cedula= e.cedula WHERE estudiante_has_grupo.grupo_idgrupo = '+ grupo.idgrupo
+    const lista = await pool.query(sql)
+    res.render("links/admin/listaCurso",{lista})
+})
+
 //RUTAS DEL PROFESOR
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
     res.render("links/profesor/indexProf")
@@ -143,10 +150,5 @@ router.get('/profe/descargarlista:idgrupo', isLoggedIn,isTeacher,async(req, res)
 
 
 })
-router.get('/admin/lista:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
-    const grupo = req.params
-    const sql = 'SELECT e.* FROM `estudiante_has_grupo` INNER JOIN `estudiante` e on estudiante_has_grupo.estudiante_cedula= e.cedula WHERE estudiante_has_grupo.grupo_idgrupo = '+ grupo.idgrupo
-    const lista = await pool.query(sql)
-    res.render("links/admin/listaCurso",{lista})
-})
+
 module.exports = router
