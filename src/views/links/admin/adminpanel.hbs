@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body id="body">
-    
+
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -19,16 +21,16 @@
     </header>
 
     <div class="menu__side" id="menu_side">
-        
+
         <div class="name__page">
-            
-              
-                <h1>Hogwarts</h1>
-            
+
+
+            <h1>Hogwarts</h1>
+
 
         </div>
 
-        <div class="options__menu">	
+        <div class="options__menu">
 
             <a href="/links/indexest" class="selected">
                 <div class="option">
@@ -37,13 +39,13 @@
                 </div>
             </a>
 
-           <a href="/links/adminpanel">
+            <a href="/links/adminpanel">
                 <div class="option">
                     <i class="far fa-file" title="Courses Lists"></i>
                     <h4>Group Lists</h4>
                 </div>
             </a>
-            
+
 
             <a href="/logout">
                 <div class="option">
@@ -51,49 +53,78 @@
                     <h4>Exit</h4>
                 </div>
             </a>
-                </div>
-            </a>
-
         </div>
+        </a>
+
+    </div>
 
     </div>
 
     <main>
         <a type="button" class="btn btn-success btn-block m-3" href="admin/grupo" style="width: 150px;">
-    Create Group</a>
-<table class="table">
-    <thead class="table-success">
-        <th>Id</th>
-        <th>Name</th>
-        <th>Credit</th>
-        <th>Teacher</th>
-        <th>Options</th>
-    </thead>
-    <tbody>
-        {{#each grupos}}
-        <tr>
-            <th>
-                {{idgrupo}}
-            </th>
-            <th>
-                {{nombre}}
-            </th>
-            <th>
-                {{creditos}}
-            </th>
-            <th>
-                {{profesor}}
-            </th>
-            <th>
-                <a type="button" class="btn btn-success btn-block p-1" href="admin/estudiante{{idgrupo}}" >New Student</a>
-                <a type="button" class="btn btn-success btn-block p-1" href="admin/lista{{idgrupo}}" >View List</a>
-            </th>
-        </tr> 
-        {{/each}} 
-    </tbody>
-</table>
+            Create Group</a>
+        <table class="table">
+            <thead class="table-success">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Credit</th>
+                <th>Teacher</th>
+                <th>Options</th>
+            </thead>
+            <tbody>
+                {{#each grupos}}
+                <tr>
+                    <th>
+                        {{idgrupo}}
+                    </th>
+                    <th>
+                        {{nombre}}
+                    </th>
+                    <th>
+                        {{creditos}}
+                    </th>
+                    <th>
+                        {{profesor}}
+                    </th>
+                    <th>
+                        <a type="button" class="btn btn-success btn-block p-1" href="#" data-toggle="modal"
+                            data-target="#ventanamodal">New
+                            Student</a>
+                        <a type="button" class="btn btn-success btn-block p-1" href="admin/lista{{idgrupo}}">View
+                            List</a>
+                    </th>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="modal" id="ventanamodal" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h2 id="titulo">Add Student</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text m-2" for="inputGroupSelect01">Students</label>
+                            <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio">
+                                
+                                <option value="MONDAY">MONDAY</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-alert btn-block" data-dismiss="modal">CANCEL</button>
+                        <a type="button" class="btn btn-success btn-block p-1" href="#">ADD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
+
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>
