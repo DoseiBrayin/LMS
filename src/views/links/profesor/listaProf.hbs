@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body id="body">
-    
+
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -19,16 +21,16 @@
     </header>
 
     <div class="menu__side" id="menu_side">
-        
+
         <div class="name__page">
-            
-              
+
+
             <h1>Hogwarts</h1>
-            
+
 
         </div>
 
-        <div class="options__menu">	
+        <div class="options__menu">
 
             <a href="/links/indexest" class="selected">
                 <div class="option">
@@ -50,46 +52,53 @@
                     <h4>Exit</h4>
                 </div>
             </a>
-                </div>
-            </a>
-
         </div>
+        </a>
+
+    </div>
 
     </div>
 
     <main>
+        {{#if lista}}
         <table class="table">
-    <thead class="table-success">
-        <th>identification</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Pensum</th>
-        <th>User</th>
-    </thead>
-    <tbody>
-        {{#each lista}}
-        <tr>
-            <th>
-                {{cedula}}
-            </th>
-            <th>
-                {{nombre}}
-            </th>
-            <th>
-                {{correo}}
-            </th>
-            <th>
-                {{pensum_idpensum}}
-            </th>
-            <th>
-                {{usuario_idusuario}}
-            </th>
-        </tr>  
-        {{/each}}
-    </tbody>
-</table>
+            <thead class="table-success">
+                <th>identification</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Pensum</th>
+                <th>User</th>
+            </thead>
+            <tbody>
+                {{#each lista}}
+                <tr>
+                    <th>
+                        {{cedula}}
+                    </th>
+                    <th>
+                        {{nombre}}
+                    </th>
+                    <th>
+                        {{correo}}
+                    </th>
+                    <th>
+                        {{pensum_idpensum}}
+                    </th>
+                    <th>
+                        {{usuario_idusuario}}
+                    </th>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <div class="alert alert-danger" role="alert">
+            There are no students enrolled in this group
+        </div>
+        {{/if}}
     </main>
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>
