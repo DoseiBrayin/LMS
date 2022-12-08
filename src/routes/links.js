@@ -29,6 +29,7 @@ router.get('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
     const profesores = await pool.query(sql)
     sql = 'SELECT nombre,id_asig FROM `asignatura`'
     const asignaturas = await pool.query(sql)
+
     res.render("links/admin/formgroup",{profesores,asignaturas})
 })
 
@@ -52,11 +53,12 @@ router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
 
 
 router.get('/adminpanel', isLoggedIn,isAdmin, async(req, res) => {
-    const sql = 'SELECT grupo.idgrupo,asignatura.nombre,asignatura.creditos,profesor.nombre as profesor FROM `grupo` INNER JOIN `asignatura` ON asignatura_id_asig=asignatura.id_asig INNER JOIN `profesor` ON profesor.cedula=profesor_cedula;'
+    let sql = 'SELECT grupo.idgrupo,asignatura.nombre,asignatura.creditos,profesor.nombre as profesor FROM `grupo` INNER JOIN `asignatura` ON asignatura_id_asig=asignatura.id_asig INNER JOIN `profesor` ON profesor.cedula=profesor_cedula;'
     const grupos = await pool.query(sql)
     res.render("links/admin/adminpanel.hbs",{grupos})
 })
 
+//PENDIENTE DE ELIMINAR
 router.get('/admin/estudiante:grupo', isLoggedIn,isAdmin, (req, res) => {
     res.render('links/admin/formest')
 })
@@ -71,6 +73,14 @@ router.get('/admin/lista:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
     const lista = await pool.query(sql)
     res.render("links/admin/listaCurso",{lista})
 })
+
+router.get('/admin/agregar:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
+    const sql = 'SELECT e1.nombre FROM estudiante e1 WHERE NOT EXISTS (SELECT NULL FROM estudiante_has_grupo e2 WHERE e2.estudiante_cedula=e1.cedula AND e2.grupo_idgrupo=?);'
+    const estudiante = await pool.query(sql,[req.params.idgrupo])
+    console.log(estudiante)
+    res.render("links/admin/adminpanel.hbs")
+})
+
 
 //RUTAS DEL PROFESOR
 router.get('/indexprofe', isLoggedIn,isTeacher,(req, res) => {
