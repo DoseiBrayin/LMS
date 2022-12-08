@@ -90,7 +90,7 @@ router.post('/admin/agregar:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
     const notas = await pool.query('SELECT MAX(idnotas) as id FROM `notas`;')
     sql = "INSERT INTO `estudiante_has_grupo` VALUES ('"+estudiante[0].cedula+"','"+estudiante[0].pensum_idpensum+"','"+estudiante[0].usuario_idusuario+"','"+grupo+"','"+profesor[0].profesor_cedula+"','"+profesor[0].asignatura_id_asig+"','"+profesor[0].tiempo_idtiempo+"','"+notas[0].id+"')"
     const agregar = await pool.query(sql)
-    req.flash('success', 'Added successfully successfully');
+    req.flash('success', 'Added successfully');
     res.redirect("/links/adminpanel")
 })
 
