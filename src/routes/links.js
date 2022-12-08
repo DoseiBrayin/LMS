@@ -36,10 +36,19 @@ router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
     const grupo = {
         profesor: req.body.profesor,
         asignatura: req.body.asignatura,
-        hora_inicio: '124@fasf.com',
-        hora_final: '4232@fasf.com'
     }
-    console.log(req.body)
+    const tiempo = {
+        dia: req.body.fecha_inicio[0]+'-'+req.body.fecha_inicio[1],
+        hora_inicio: req.body.hora_inicio,
+        hora_final: req.body.hora_final
+    }
+    let sql = "INSERT INTO `tiempo` (`idtiempo`, `dia`, `hora_inicio`, `hora_fin`) VALUES (NULL,'"+tiempo.dia+"','"+tiempo.hora_inicio+"','"+tiempo.hora_final+"');"
+    const tiempos = await pool.query(sql)
+    const idtiempo = await pool.query("SELECT MAX(idtiempo) as id FROM `tiempo`;")
+    console.log(idtiempo[0].id)
+    sql = "INSERT INTO `grupo` (`idgrupo`, `profesor_cedula`, `asignatura_id_asig`, `tiempo_idtiempo`) VALUES (NULL,'"+grupo.profesor+"','"+grupo.asignatura+"','"+idtiempo[0].id+"');"
+    const grupos = await pool.query(sql)
+    console.log(grupo.asignatura)
     res.redirect('/links/adminpanel')
 })
 
