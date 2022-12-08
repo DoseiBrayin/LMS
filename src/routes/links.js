@@ -75,10 +75,22 @@ router.get('/admin/lista:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
 })
 
 router.get('/admin/agregar:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
-    const sql = 'SELECT e1.nombre FROM estudiante e1 WHERE NOT EXISTS (SELECT NULL FROM estudiante_has_grupo e2 WHERE e2.estudiante_cedula=e1.cedula AND e2.grupo_idgrupo=?);'
+    const sql = 'SELECT e1.nombre,e1.cedula FROM estudiante e1 WHERE NOT EXISTS (SELECT NULL FROM estudiante_has_grupo e2 WHERE e2.estudiante_cedula=e1.cedula AND e2.grupo_idgrupo=?);'
     const estudiante = await pool.query(sql,[req.params.idgrupo])
-    console.log(estudiante)
-    res.render("links/admin/adminpanel.hbs")
+    const grupo = req.params.idgrupo
+    res.render("links/admin/formest",{estudiante,grupo})
+})
+
+router.post('/admin/agregar:idgrupo', isLoggedIn,isAdmin,async(req, res) => {
+    const grupo = req.params.idgrupo
+    const estudiante = await pool.query('SELECT cedula,pensum_idpensum,usuario_idusuario FROM estudiante WHERE cedula = ?',[req.body.cedula])
+    let sql = 'SELECT grupo.profesor_cedula,grupo.asignatura_id_asig,grupo.tiempo_idtiempo FROM grupo WHERE idgrupo='+grupo
+    const profesor = await pool.query(sql)
+    await pool.query('INSERT INTO `notas` (`idnotas`, `parcial`, `seguimiento`, `final`) VALUES (NULL, "", "", "");')
+    const notas = await pool.query('SELECT MAX(idnotas) as id FROM `notas`;')
+    sql = "INSERT INTO `estudiante_has_grupo` VALUES ('"+estudiante[0].cedula+"','"+estudiante[0].pensum_idpensum+"','"+estudiante[0].usuario_idusuario+"','"+grupo+"','"+profesor[0].profesor_cedula+"','"+profesor[0].asignatura_id_asig+"','"+profesor[0].tiempo_idtiempo+"','"+notas[0].id+"')"
+    const agregar = await pool.query(sql)
+    res.redirect("/links/adminpanel")
 })
 
 

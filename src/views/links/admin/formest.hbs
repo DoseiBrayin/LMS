@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
 <body id="body">
-    
+
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -19,16 +21,16 @@
     </header>
 
     <div class="menu__side" id="menu_side">
-        
+
         <div class="name__page">
-            
-              
-                <h1>Hogwarts</h1>
-            
+
+
+            <h1>Hogwarts</h1>
+
 
         </div>
 
-        <div class="options__menu">	
+        <div class="options__menu">
 
             <a href="/links/indexest" class="selected">
                 <div class="option">
@@ -37,13 +39,13 @@
                 </div>
             </a>
 
-           <a href="/links/adminpanel">
+            <a href="/links/adminpanel">
                 <div class="option">
                     <i class="far fa-file" title="Courses Lists"></i>
                     <h4>Group Lists</h4>
                 </div>
             </a>
-            
+
 
             <a href="/logout">
                 <div class="option">
@@ -51,16 +53,37 @@
                     <h4>Exit</h4>
                 </div>
             </a>
-                </div>
-            </a>
-
         </div>
+        </a>
+
+    </div>
 
     </div>
     <main>
-        <!--aqui programan-->
+        <form action="" method="post">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="titulo">Add Student in Group {{grupo}}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="cedula">
+                            {{#each estudiante}}
+                            <option value={{cedula}}>{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Add Group" class="btn btn-success">
+                        <a type="button" class="btn btn-danger " href="/links/adminpanel">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
     </main>
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>
