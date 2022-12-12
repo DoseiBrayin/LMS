@@ -48,6 +48,7 @@ router.post('/admin/grupo', isLoggedIn,isAdmin, async(req, res) => {
     const idtiempo = await pool.query("SELECT MAX(idtiempo) as id FROM `tiempo`;")
     sql = "INSERT INTO `grupo` (`idgrupo`, `profesor_cedula`, `asignatura_id_asig`, `tiempo_idtiempo`) VALUES (NULL,'"+grupo.profesor+"','"+grupo.asignatura+"','"+idtiempo[0].id+"');"
     const grupos = await pool.query(sql)
+    req.flash('success', 'Group was created');
     res.redirect('/links/adminpanel')
 })
 
