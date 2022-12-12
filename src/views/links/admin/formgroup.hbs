@@ -65,13 +65,15 @@
             <form method="post" action="/links/admin/grupo">
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Teachers</label>
-                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="profesor">
+                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="profesor" required>
+                        <option value="">Select teacher</option>
                         {{#each profesores}}
                         <option value={{cedula}}>{{nombre}}</option>
                         {{/each}}
                     </select>
                     <label class="input-group-text" for="inputGroupSelect01">Asignature</label>
-                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="asignatura">
+                    <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="asignatura" required>
+                        <option value="">Select teacher</option>
                         {{#each asignaturas}}
                         <option value={{id_asig}}>{{nombre}}</option>
                         {{/each}}
@@ -79,7 +81,8 @@
 
                     <div class="input-group mb-3">
                         <label class="input-group-text m-2" for="inputGroupSelect01">Start day</label>
-                        <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio">
+                        <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio" required>
+                            <option value="">Select day</option>
                             <option value="MONDAY">MONDAY</option>
                             <option value="TUESDAY">TUESDAY</option>
                             <option value="WEDNESDAY">WEDNESDAY</option>
@@ -89,7 +92,7 @@
 
                         <label class="input-group-text m-2" for="inputGroupSelect01">Finish day</label>
                         <select class="btn btn-default dropdown-toggle" id="inputGroupSelect01" name="fecha_inicio">
-
+                            <option value="">Select day</option>
                             <option value="MONDAY">MONDAY</option>
                             <option value="TUESDAY">TUESDAY</option>
                             <option value="WEDNESDAY">WEDNESDAY</option>
@@ -99,10 +102,10 @@
                     </div>
                     <div class="form-group">
                         <label for="HORA_INICIO">Start time:</label>
-                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_inicio">
+                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_inicio" required>
 
                         <label for="HORA_FIN">Finish time:</label>
-                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_final">
+                        <input type="time" class="form-control" id="ejemplo_email_1" placeholder="" name="hora_final" required>
                     </div>
 
                     <input type="submit" value="Add Group" class="btn btn-success btn-block m-3">
