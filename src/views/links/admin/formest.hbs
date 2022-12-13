@@ -60,6 +60,7 @@
 
     </div>
     <main>
+        {{#if estudiante}}
         <form action="" method="post">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -80,7 +81,21 @@
                 </div>
             </div>
         </form>
-
+{{else}}
+        <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    All students are enrolled in this group
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <a  type="button" class="btn btn-block" href="/links/adminpanel">Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
     </main>
 
     <script src="/js/script.js"></script>
